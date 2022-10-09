@@ -1,0 +1,6 @@
+<ul>
+  <li *ngFor="let planet of planets">
+    <a routerLink="/planets/{{planet.name}}">{{planet.name}}</a>
+  </li>
+</ul>
+<button type="button" routerLink="/sidekicks">Go to sidekicks</button>

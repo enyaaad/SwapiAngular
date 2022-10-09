@@ -27,7 +27,15 @@ yarn-error.log
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
-
+.editorconfig
+.browserslistrc
+karma.conf.js
+tsconfig.app.json
+tsconfig.json
+tsconfig.spec.json
+package-lock.json
+package.json
+angular.json
 # Miscellaneous
 /.angular/cache
 .sass-cache/
