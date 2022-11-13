@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Planet} from "../../models/Planet";
+import {Planet, ResidentName} from "../../models/Planet";
 import {ActivatedRoute} from "@angular/router";
 import {PlanetService} from "../../services/planet.service";
 
@@ -8,14 +8,31 @@ import {PlanetService} from "../../services/planet.service";
   templateUrl: './planet-page.component.html',
   styleUrls: ['./planet-page.component.sass']
 })
+
 export class PlanetPageComponent implements OnInit {
+
   planet!:Planet;
-  constructor(activatedRoute:ActivatedRoute,planetService:PlanetService) {
-    activatedRoute.params.subscribe((params)=>{
+  residentNames:ResidentName[] = [];
+
+  constructor( activatedRoute:ActivatedRoute, private planetService:PlanetService ) {
+   activatedRoute.params.subscribe((params)=>{
       if(params['name'])
         this.planet = planetService.getPlanetByName(params['name'])
     })
+    this.planetService.ResidentList =[]
+    this.getResidents();
   }
+
+  getResidents():void{
+    this.planet.residents?.forEach(resident=>{
+      if(resident.link)
+        this.planetService.getResident(resident);
+
+    })
+
+    this.residentNames = this.planetService.ResidentList;
+    console.log(this.residentNames)
+}
 
   ngOnInit(): void {
   }

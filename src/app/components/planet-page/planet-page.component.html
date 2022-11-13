@@ -1,2 +1,10 @@
 {{planet.name}}
-{{planet.residents}}
+
+<ul *ngIf="residentNames">
+  <li *ngFor="let planet of residentNames">
+    {{planet}}
+  </li>
+</ul>
+<ul *ngIf="residentNames.length ==0">
+  <h1>Тут никого нет!</h1>
+</ul>

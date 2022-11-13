@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Planet} from "../../models/Planet";
+import {Planet, ResultsType} from "../../models/Planet";
 import {PlanetService} from "../../services/planet.service";
 
 @Component({
@@ -9,11 +9,11 @@ import {PlanetService} from "../../services/planet.service";
 })
 export class PlanetsComponent implements OnInit {
 
-  planets:Planet[]=[];
-  constructor(private planetService:PlanetService) {
-    this.planets = planetService.getAll();
-  }
+  planets:Planet[] = [];
 
+  constructor(private planetService:PlanetService) {
+  }
   async ngOnInit() {
+    this.planets = this.planetService.getPlanetsAxios(1);
   }
 }

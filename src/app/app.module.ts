@@ -6,13 +6,15 @@ import { ResidentsComponent } from './components/residents/residents.component';
 import {RouterModule, Routes} from "@angular/router";
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PlanetPageComponent } from './components/planet-page/planet-page.component';
+import { HttpClientModule} from "@angular/common/http";
+import { MainPageComponent } from './components/main-page/main-page.component';
 
 const appRoutes: Routes =[
-
+  {path:'swapi',component: MainPageComponent},
   {path:'planets',component: PlanetsComponent},
   {path:'residents',component: ResidentsComponent},
   {path:'planets/:name',component:PlanetPageComponent},
-  {path: '',   redirectTo: '/planets', pathMatch: 'full' },
+  {path: '',   redirectTo: '/swapi', pathMatch: 'full' },
   {path: '**', component: PageNotFoundComponent }
 ]
 
@@ -22,10 +24,13 @@ const appRoutes: Routes =[
     PlanetsComponent,
     ResidentsComponent,
     PageNotFoundComponent,
-    PlanetPageComponent
+    PlanetPageComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+
     RouterModule.forRoot(appRoutes,{enableTracing:true})
   ],
   providers: [],
