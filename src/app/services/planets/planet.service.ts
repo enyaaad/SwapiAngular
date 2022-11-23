@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Planet, ResidentLink, ResidentName} from "../models/Planet";
-import axios, {AxiosResponse} from "axios";
+import {Planet, ResidentName} from "../../models/Planet";
+import axios, {} from "axios";
 
 @Injectable({
   providedIn: 'root'

@@ -6,8 +6,10 @@ import { ResidentsComponent } from './components/residents/residents.component';
 import {RouterModule, Routes} from "@angular/router";
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PlanetPageComponent } from './components/planet-page/planet-page.component';
-import { HttpClientModule} from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 import { MainPageComponent } from './components/main-page/main-page.component';
+import { PlanetPreviewComponent } from './components/planet-preview/planet-preview.component';
+import {NgxUiLoaderHttpModule, NgxUiLoaderModule} from "ngx-ui-loader";
 
 const appRoutes: Routes =[
   {path:'swapi',component: MainPageComponent},
@@ -25,15 +27,15 @@ const appRoutes: Routes =[
     ResidentsComponent,
     PageNotFoundComponent,
     PlanetPageComponent,
-    MainPageComponent
+    MainPageComponent,
+    PlanetPreviewComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-
     RouterModule.forRoot(appRoutes,{enableTracing:true})
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,15 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap')
 
 body
-  max-width: 100%
+  min-height: 100vh
+  .Main
+    display: flex
+    flex-direction: column
+    flex: 1
 .MainPage
   box-sizing: border-box
   position: relative
   display: flex
   justify-content: center
   align-items: center
-  height: 100vh
   transform-style: inherit
+  min-height: 100vh
+  flex: 1
+  z-index: -1
 .MainPage img
   position: absolute
   top: 0
@@ -23,6 +29,33 @@ body
   z-index: 5
   color: #FFFFFF
   font-size: 10rem
+.SectionAfterMain
+  background: no-repeat url('../../../assets/Images/StarWarsBackground.png')
+  background-size: cover
+  width: 100%
+  min-height: 130vh
+  height: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  align-content: center
+  z-index: 1
+  padding-top: 10vh
+  h1
+    color: #FFFFFF
+  .PlanetsButton
+    background-color: transparent
+    border-bottom: 2px solid #FFFFFF
+    border-top: 2px solid #FFFFFF
+    border-radius: 25px 25px 25px 25px
+    height: 5vw
+    width: 50vw
+    a
+      font-family: 'Archivo Black', sans-serif
+      text-decoration: none
+      color: #FFFFFF
+      font-size: 3em
+
 .hidden
   opacity: 0
   filter: blur(5px)

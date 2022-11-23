@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Planet, ResidentName} from "../../models/Planet";
 import {ActivatedRoute} from "@angular/router";
-import {PlanetService} from "../../services/planet.service";
+import {PlanetService} from "../../services/planets/planet.service";
 
 @Component({
   selector: 'app-planet-page',
