@@ -19,8 +19,7 @@ export class PlanetPageComponent implements OnInit {
       if(params['name'])
         this.planet = planetService.getPlanetByName(params['name'])
     })
-    this.planetService.ResidentList =[]
-    this.getResidents();
+
   }
 
   getResidents():void{
@@ -31,10 +30,11 @@ export class PlanetPageComponent implements OnInit {
     })
 
     this.residentNames = this.planetService.ResidentList;
-    console.log(this.residentNames)
 }
 
   ngOnInit(): void {
+    this.planetService.ResidentList =[]
+    this.getResidents();
   }
 
 }

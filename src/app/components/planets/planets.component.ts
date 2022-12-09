@@ -12,8 +12,9 @@ export class PlanetsComponent implements OnInit {
   planets:Planet[] = [];
 
   constructor(private planetService:PlanetService) {
+    this.planets = this.planetService.getPlanetsAxios(1)
   }
   async ngOnInit() {
-    this.planets = this.planetService.getPlanetsAxios(1);
+
   }
 }

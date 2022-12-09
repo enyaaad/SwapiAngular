@@ -7,20 +7,22 @@ import {FilmsService} from "../../services/films/films.service";
   styleUrls: ['./planet-preview.component.sass']
 })
 export class PlanetPreviewComponent implements OnInit {
-  @Input() episodeId = 1;
-  @Output() epId = this.episodeId;
-  FilmObj = this.filmService.FilmObject;
-
+  @Input() episodeId!: number;
   FilmTitle: string ="";
   OpCrawl: string ="";
   ReleaseDate: string ="";
 
   constructor(private filmService: FilmsService) {
-
-  console.log("asdasdasdasdasdasd"+ this.FilmObj);
   }
 
   ngOnInit(): void {
+    console.log(this.episodeId);
+    this.filmService.getFilmById(this.episodeId).then(response=>{
+        this.FilmTitle = response.title
+        this.OpCrawl = response.opening_crawl
+        this.ReleaseDate = response.release_date
+      }
+    );
   }
 
 }

@@ -29,7 +29,6 @@ export class PlanetService {
 
   getResident(resLink:any):ResidentName[]{
     axios.get(resLink).then((res)=>{
-      console.log(res);
       this.ResidentList.push(res.data.name)
     })
     return this.ResidentList;

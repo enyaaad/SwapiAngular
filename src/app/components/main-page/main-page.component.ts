@@ -1,4 +1,5 @@
-import {Component, Input, OnInit,} from '@angular/core';
+import {Component, Input, OnInit, Output,} from '@angular/core';
+import {FilmsService} from "../../services/films/films.service";
 
 @Component({
   selector: 'app-main-page',
@@ -6,9 +7,8 @@ import {Component, Input, OnInit,} from '@angular/core';
   styleUrls: ['./main-page.component.sass']
 })
 export class MainPageComponent implements OnInit {
-  NewHope: string = 'New Hope';
 
-  constructor() {
+  constructor(private filmService: FilmsService) {
   }
 
   ngOnInit(): void {
