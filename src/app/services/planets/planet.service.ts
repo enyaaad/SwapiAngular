@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Planet, ResidentName} from "../../models/Planet";
+import {isNextPrev, Planet, ResidentName} from "../../models/Planet";
 import axios, {} from "axios";
 
 @Injectable({
@@ -10,15 +10,19 @@ export class PlanetService {
   }
 
   PlanetList:Array<Planet> =[];
-  ResidentList:Array<ResidentName>=[];
 
   getPlanetsAxios(page:number):Planet[]{
-    axios.get('https://swapi.dev/api/planets/?page='+page).then((res)=>{
-      this.PlanetList = [];
-      res.data.results.forEach((el: Planet) =>{
-       this.PlanetList.push(el)
-     })
-    })
+    if(page!=0){
+      axios.get('https://swapi.dev/api/planets/?page='+page).then((res)=>{
+        res.data.results.forEach((el: Planet) =>{
+          let res = {
+            name:el.name,
+            residents:el.residents
+          }
+          this.PlanetList.push(res)
+        })
+      })
+    }
     return this.PlanetList;
   }
 
@@ -27,11 +31,19 @@ export class PlanetService {
     return this.getPlanetsAxios(1).find(planet => planet.name == PlanetName) ?? new Planet();
   }
 
-  getResident(resLink:any):ResidentName[]{
-    axios.get(resLink).then((res)=>{
-      this.ResidentList.push(res.data.name)
-    })
-    return this.ResidentList;
+  async getResident(resLink:any):Promise<{residentName:string}>{
+    let res = await axios.get(resLink);
+    return {
+      residentName: res.data.name
+    }
+  }
+
+  async isNext(page:number):Promise<{next:string,previous:string}>{
+    let res = await axios.get('https://swapi.dev/api/planets/?page=' + page);
+    return {
+      next: res.data.next || null,
+      previous: res.data.previous || null
+    }
   }
 }
 

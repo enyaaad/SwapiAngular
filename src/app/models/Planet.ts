@@ -1,8 +1,12 @@
+export class isNextPrev{
+  next!:string;
+  previous!:string
+}
 export type ResultsType = {
   planet:Planet[];
 }
 export class Planet{
-  name?:string;
+  name!:string;
   residents?:ResidentLink[];
 }
 export class ResidentLink{

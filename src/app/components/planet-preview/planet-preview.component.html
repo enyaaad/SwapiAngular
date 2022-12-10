@@ -1,9 +1,18 @@
-<div class="filmBlock">
-  <div class="leftContent">
-    <h1>{{FilmTitle}}</h1>
-    <h5>{{ReleaseDate}}</h5>
+<div class="content">
+  <div class="loading">
+    <div class="spinner" *ngIf="!isLoaded">
+      <app-spinner></app-spinner>
+    </div>
   </div>
-  <div class="rightContent">
-    <h3>{{OpCrawl}}</h3>
+  <div class="isLoaded" *ngIf="isLoaded">
+    <div class="filmBlock">
+      <div class="leftContent">
+        <h1>{{FilmTitle}}</h1>
+        <h5>{{ReleaseDate}}</h5>
+      </div>
+      <div class="rightContent">
+        <h3>{{OpCrawl}}</h3>
+      </div>
+    </div>
   </div>
 </div>

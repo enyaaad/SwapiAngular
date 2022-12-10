@@ -8,6 +8,7 @@ import {FilmsService} from "../../services/films/films.service";
 })
 export class PlanetPreviewComponent implements OnInit {
   @Input() episodeId!: number;
+  isLoaded: boolean = false;
   FilmTitle: string ="";
   OpCrawl: string ="";
   ReleaseDate: string ="";
@@ -16,7 +17,7 @@ export class PlanetPreviewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.episodeId);
+    this.isLoaded = true;
     this.filmService.getFilmById(this.episodeId).then(response=>{
         this.FilmTitle = response.title
         this.OpCrawl = response.opening_crawl

@@ -7,12 +7,6 @@ import axios from "axios";
 export class FilmsService {
   constructor() {
   }
-  async getFilmsCount():Promise<{count:number}>{
-    let res = await axios.get('https://swapi.dev/api/films/')
-    return {
-      count: res.data.count
-    }
-  }
   async getFilmById(id: number):Promise<{title: string, opening_crawl: string, release_date: string}>{
     let res = await axios.get('https://swapi.dev/api/films/'+ id);
 

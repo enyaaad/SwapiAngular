@@ -1,10 +1,9 @@
-{{planet.name}}
+<div class="content">
+  {{planet.name}}
+    <ul *ngIf="residentNames">
+      <li *ngFor="let residentName of residentNames">
+        {{residentName.name}}
+      </li>
+    </ul>
 
-<ul *ngIf="residentNames">
-  <li *ngFor="let planet of residentNames">
-    {{planet}}
-  </li>
-</ul>
-<ul *ngIf="residentNames.length ==0">
-  <h1>Тут никого нет!</h1>
-</ul>
+</div>

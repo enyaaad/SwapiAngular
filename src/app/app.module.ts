@@ -6,10 +6,11 @@ import { ResidentsComponent } from './components/residents/residents.component';
 import {RouterModule, Routes} from "@angular/router";
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PlanetPageComponent } from './components/planet-page/planet-page.component';
-import { HttpClientModule } from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { MainPageComponent } from './components/main-page/main-page.component';
-import { PlanetPreviewComponent } from './components/planet-preview/planet-preview.component';
-import {NgxUiLoaderHttpModule, NgxUiLoaderModule} from "ngx-ui-loader";
+import { PlanetPreviewComponent} from "./components/planet-preview/planet-preview.component";
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import {LoadingInterceptor} from "./interceptors/https/loading.interceptor";
 
 const appRoutes: Routes =[
   {path:'swapi',component: MainPageComponent},
@@ -28,14 +29,17 @@ const appRoutes: Routes =[
     PageNotFoundComponent,
     PlanetPageComponent,
     MainPageComponent,
-    PlanetPreviewComponent
+    PlanetPreviewComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes,{enableTracing:true})
   ],
-  providers: [ ],
+  providers: [ {
+    provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
