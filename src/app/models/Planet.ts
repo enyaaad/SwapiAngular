@@ -8,6 +8,10 @@ export type ResultsType = {
 export class Planet{
   name!:string;
   residents?:ResidentLink[];
+  diameter?:string;
+  climate?:string;
+  terrain?:string;
+  population?:string;
 }
 export class ResidentLink{
   link?: string;

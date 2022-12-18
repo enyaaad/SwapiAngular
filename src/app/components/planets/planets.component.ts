@@ -10,9 +10,11 @@ import {PlanetService} from "../../services/planets/planet.service";
 export class PlanetsComponent implements OnInit {
 
   planets:Planet[] = [];
-  private page:number = 1;
-  constructor(private planetService:PlanetService) {
+  isLoaded:boolean;
+  page:number = 1;
 
+  constructor(private planetService:PlanetService) {
+    this.isLoaded = planetService.isLoaded;
   }
    ngOnInit(): void{
     this.planetService.PlanetList = [];
@@ -20,6 +22,7 @@ export class PlanetsComponent implements OnInit {
   }
 
   nextPlanetPage(): void{
+    const currPage = this.page;
     this.planetService.isNext(this.page).then(res=>{
       if(res.next != null){
         this.page++;
@@ -27,12 +30,13 @@ export class PlanetsComponent implements OnInit {
         this.planets = this.planetService.getPlanetsAxios(this.page)
       }
       else{
-        this.page --;
+        this.page = currPage;
       }
     })
 
   }
   prevPlanetPage(): void{
+    const currPage = this.page;
     this.planetService.isNext(this.page).then(res=>{
       if(res.previous != null){
         this.page--;
@@ -40,7 +44,7 @@ export class PlanetsComponent implements OnInit {
         this.planets = this.planetService.getPlanetsAxios(this.page)
       }
       else{
-        this.page ++;
+        this.page = currPage;
       }
     })
   }

@@ -10,6 +10,7 @@ export class PlanetService {
   }
 
   PlanetList:Array<Planet> =[];
+  isLoaded:boolean = false;
 
   getPlanetsAxios(page:number):Planet[]{
     if(page!=0){
@@ -17,12 +18,17 @@ export class PlanetService {
         res.data.results.forEach((el: Planet) =>{
           let res = {
             name:el.name,
-            residents:el.residents
+            residents:el.residents,
+            diameter:el.diameter,
+            climate:el.climate,
+            terrain:el.terrain,
+            population:el.population
           }
           this.PlanetList.push(res)
         })
       })
     }
+    this.isLoaded = true;
     return this.PlanetList;
   }
 

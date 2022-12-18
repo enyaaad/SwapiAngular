@@ -1,9 +1,14 @@
 <div class="content">
   {{planet.name}}
+  <div class="resCard">
     <ul *ngIf="residentNames">
       <li *ngFor="let residentName of residentNames">
         {{residentName.name}}
       </li>
     </ul>
-
+    <ul *ngIf="residentNames.length == 0">
+      <h1>There's no residents</h1>
+    </ul>
+  </div>
+  <a routerLink="/planets" routerLinkActive="active" class="swapiButton"> to main page</a>
 </div>
