@@ -6,20 +6,47 @@
     <img src="assets/MainPageParallax/rightMount.png" alt="background" id = "rightMount" >
     <img src="assets/MainPageParallax/forest.png" alt="background" id = "forest"  class="">
     <img src="assets/MainPageParallax/ship.png" alt="background" id = "ship" class="hidden">
+    <img src="assets/Images/white-arrow.png" id="arrow" class="hidden">
   </div>
   <div class="SectionAfterMain">
     <button class="PlanetsButton">
-      <a routerLink="/planets" routerLinkActive="active" > PLANETS</a>
+      <a routerLink="/planets" routerLinkActive="active" > Go to Planets Page</a>
     </button>
-
     <div class="filmsList">
       <h1>Films</h1>
-      <app-planet-preview [episodeId]="1"></app-planet-preview>
-      <app-planet-preview [episodeId]="2"></app-planet-preview>
-      <app-planet-preview [episodeId]="3"></app-planet-preview>
-      <app-planet-preview [episodeId]="4"></app-planet-preview>
-      <app-planet-preview [episodeId]="5"></app-planet-preview>
-      <app-planet-preview [episodeId]="6"></app-planet-preview>
+      <div class="timeline">
+        <div class="container left">
+          <div class="content">
+            <app-planet-preview [episodeId]="1"></app-planet-preview>
+          </div>
+        </div>
+        <div class="container right">
+          <div class="content">
+            <app-planet-preview [episodeId]="2"></app-planet-preview>
+          </div>
+        </div>
+        <div class="container left">
+          <div class="content">
+            <app-planet-preview [episodeId]="3"></app-planet-preview>
+          </div>
+        </div>
+        <div class="container right">
+          <div class="content">
+            <app-planet-preview [episodeId]="4"></app-planet-preview>
+          </div>
+        </div>
+        <div class="container left">
+          <div class="content">
+            <app-planet-preview [episodeId]="5"></app-planet-preview>
+          </div>
+        </div>
+        <div class="container right">
+          <div class="content">
+            <app-planet-preview [episodeId]="6"></app-planet-preview>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 

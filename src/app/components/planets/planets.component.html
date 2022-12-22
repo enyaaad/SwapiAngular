@@ -1,18 +1,17 @@
 <div class="content">
-  <a routerLink="/swapi" routerLinkActive="active" class="swapiButton"> to main page</a>
-    <div class="planet__card" *ngIf="isLoaded">
-      <ul>
-        <li *ngFor="let planet of planets">
+  <a routerLink="/swapi" routerLinkActive="active" class="toMainPage"> to main page</a>
+    <div class="planet-cards">
+      <div class="planet-card" *ngFor="let planet of planets">
+        <div class="planet-element">
           <a routerLink="/planets/{{planet.name}}">{{planet.name}}</a>
-          <p>diameter:{{planet.diameter}}</p>
-          <p>climate:{{planet.climate}}</p>
-          <p>terrain:{{planet.terrain}}</p>
-          <p>population:{{planet.population}}</p>
-        </li>
-      </ul>
-    </div>
-    <div class="planet__card" *ngIf="!isLoaded">
-      <h1>Loading...</h1>
+          <div class="planet-detail">
+            <p>diameter:{{planet.diameter}}</p>
+            <p>climate:{{planet.climate}}</p>
+            <p>terrain:{{planet.terrain}}</p>
+            <p>population:{{planet.population}}</p>
+          </div>
+        </div>
+      </div>
     </div>
   <div class="content__buttons">
     <button type="button" (click)="this.nextPlanetPage()">Go next</button>

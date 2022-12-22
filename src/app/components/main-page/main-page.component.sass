@@ -16,6 +16,12 @@ body
   min-height: 100vh
   flex: 1
   z-index: -1
+  #arrow
+    animation: jump 1.5s infinite
+    left: 50%
+    top: 90%
+    width: 64px
+    height: 64px
 .MainPage img
   position: absolute
   top: 0
@@ -45,6 +51,39 @@ body
     display: flex
     flex-direction: column
     align-items: center
+    .timeline
+      position: relative
+      max-width: 1200px
+      margin: 0 auto
+      .container
+        position: relative
+        width: 50%
+      .container:after
+        content: ''
+        position: absolute
+        width: 25px
+        height: 25px
+        right: -2.5vh
+        background-color: white
+        border: 4px solid #395062
+        top: 15px
+        border-radius: 50%
+        z-index: 1
+      .left
+        left: 0
+      .right
+        left: 50%
+      .right:after
+        left: -2.5vh
+    .timeline:after
+      content: ''
+      position: absolute
+      width: 6px
+      background-color: white
+      top: 0
+      bottom: 0
+      left: 50%
+      margin-left: -3px
   h1
     padding: 20px
     color: #FFFFFF
@@ -71,3 +110,11 @@ body
   filter: blur(0px)
   transform: translateX(0)
   opacity: 1
+
+@keyframes jump
+  0%
+    transform: translate(-50%, -50%)
+  50%
+    transform: translate(-50%, -100%)
+  100%
+    transform: translate(-50%, -50%)

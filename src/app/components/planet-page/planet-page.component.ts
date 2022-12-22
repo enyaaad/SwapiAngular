@@ -15,14 +15,12 @@ export class PlanetPageComponent implements OnInit {
   residentNames:ResidentName[] = [];
 
   constructor( activatedRoute:ActivatedRoute, private planetService:PlanetService ) {
-
     activatedRoute.params.subscribe((params)=>{
       if(params['name']){
         this.planet = planetService.getPlanetByName(params['name']);
-        localStorage.setItem('planetName', params['name']);
+        console.log('adasdfsafasf', this.planet);
       }
     })
-
   }
 
   getResidents():void{
@@ -35,17 +33,10 @@ export class PlanetPageComponent implements OnInit {
           this.residentNames.push(name)
         });
     })
-    localStorage.setItem('resNames', JSON.stringify(this.residentNames))
-
 
 }
 
   ngOnInit(): void {
-    const localVar = localStorage.getItem('planetName');
-    if(localVar){
-      this.planet.name = localVar;
-    }
-
     this.getResidents();
   }
 
