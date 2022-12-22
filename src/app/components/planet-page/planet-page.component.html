@@ -1,14 +1,30 @@
 <div class="content">
-  {{planet.name}}
-  <div class="resCard">
-    <ul *ngIf="residentNames">
-      <li *ngFor="let residentName of residentNames">
-        {{residentName.name}}
-      </li>
-    </ul>
-    <ul *ngIf="residentNames.length == 0">
-      <h1>There's no residents</h1>
-    </ul>
+  <div class="nameBlock">
+    <h3>{{planet.name}}</h3>
   </div>
-  <a routerLink="/planets" routerLinkActive="active" class="swapiButton"> to main page</a>
+
+  <div *ngIf="residentNames.length >= 1">
+    <div class="resBlock">
+      <h5>Residents:</h5>
+    </div>
+    <div class="resCards">
+      <div class="resCard" *ngFor="let residentName of residentNames">
+        <div class="name">
+          {{residentName.name}}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="residentNames.length == 0">
+    <h1>There's no residents</h1>
+  </div>
+
+  <div class="buttonsContent">
+    <div class="toPrev">
+      <h3><a routerLink="/planets" routerLinkActive="active" class="swapiButton">To Planets Page</a></h3>
+    </div>
+  </div>
+
 </div>

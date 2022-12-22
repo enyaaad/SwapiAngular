@@ -1,9 +1,9 @@
 <div class="content">
-  <a routerLink="/swapi" routerLinkActive="active" class="toMainPage"> to main page</a>
+  <a routerLink="/swapi" routerLinkActive="active" class="toMainPage"> To Main Page</a>
     <div class="planet-cards">
       <div class="planet-card" *ngFor="let planet of planets">
         <div class="planet-element">
-          <a routerLink="/planets/{{planet.name}}">{{planet.name}}</a>
+         <h3><a routerLink="/planets/{{planet.name}}">{{planet.name}}</a></h3>
           <div class="planet-detail">
             <p>diameter:{{planet.diameter}}</p>
             <p>climate:{{planet.climate}}</p>
@@ -14,9 +14,9 @@
       </div>
     </div>
   <div class="content__buttons">
-    <button type="button" (click)="this.nextPlanetPage()">Go next</button>
-    <p>{{page}}</p>
     <button type="button" (click)="this.prevPlanetPage()">Go previous</button>
+    <p>{{page}}</p>
+    <button type="button" (click)="this.nextPlanetPage()">Go next</button>
   </div>
 
 </div>

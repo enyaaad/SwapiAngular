@@ -4,21 +4,37 @@
   font-family: 'Ubuntu', sans-serif
   display: flex
   min-height: 100vh
-  justify-content: center
+  justify-content: space-between
   flex-direction: column
+  align-items: center
   color: white
-  .card
-    padding: 10px 15px 10px 15px
-    ul
+  .resBlock
+    display: flex
+    justify-content: center
+  .resCards
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-around
+    text-align: center
+    align-items: center
+    .resCard
+      padding: 10px
+      border: white 1px solid
+      border-radius: 25px
+      margin: 15px 5px
+      flex: 0 0 32%
+  .nameBlock
+    padding: 20px
+  .buttonsContent
+    padding: 20px
+  .toPrev
+    padding: 10px
+    cursor: pointer
+    background-color: transparent
+    border-bottom: 2px solid #FFFFFF
+    border-top: 2px solid #FFFFFF
+    border-radius: 25px 25px 25px 25px
+    color: white
+    a
       text-decoration: none
-      display: flex
-      flex-wrap: wrap
-      justify-content: space-around
-      text-align: center
-      li
-        padding: 10px 0 10px 0
-        border: white 1px solid
-        border-radius: 25px
-        margin: 15px 5px
-        list-style-type: none
-        flex: 0 0 32%
+      color: white
